@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I hate server side</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    form {
+      background-color: #00cc66; /* Green theme color */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      width: 300px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      border: none;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      background-color: #003300; /* Dark green for submit button */
+      color: white;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #005500; /* Dark green on hover */
+    }
+  </style>
+</head>
+<body>
+  <form id="loginForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <script>
+    function getRandomKeyFromArray(keyArray) {
+      return keyArray[Math.floor(Math.random() * keyArray.length)];
+    }
+
+    function encrypt(text) {
+      var keyArray = ["mama", "nyimalay", "thungalchinn", "sugardaddy", "sugarmommy","mglay","koko","fayfay","maymay"];
+      var key = getRandomKeyFromArray(keyArray);
+      let result = '';
+      for (let i = 0; i < text.length; i++) {
+        result += String.fromCharCode(text.charCodeAt(i) ^ key.charCodeAt(i % key.length));
+      }
+      return btoa(result);
+    }
+
+    function decrypt(text) {
+      var keyArray = ["mama", "nyimalay", "thungalchinn", "sugardaddy", "sugarmommy","mglay","koko","fayfay","maymay"];
+      var key = getRandomKeyFromArray(keyArray);
+      let decodedText = atob(text);
+      let result = '';
+      for (let i = 0; i < decodedText.length; i++) {
+        result += String.fromCharCode(decodedText.charCodeAt(i) ^ key.charCodeAt(i % key.length));
+      }
+      return result;
+    }
+
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      var name = document.getElementById('name').value;
+      var password = document.getElementById('password').value;
+
+      var encryptedPassword = encrypt(password);
+      if (name === 'n0v@' && encryptedPassword === 'PUURIS06Cg8yKhYWHCI+TAoDOSYgVCNSLSgBLh8gIwEuDhwyTh4yF0MhOBJCMjw+GAlAJzgyQQ4aPwgE') {
+        alert('Login successful!'); 
+      } else {
+        alert('Login failed. Please check your credentials.');
+      }
+    });
+  </script>
+</body>
+</html>
