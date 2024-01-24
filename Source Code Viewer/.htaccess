@@ -1,0 +1,7 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{QUERY_STRING} (%0a|%0d|\.\.) [NC,OR]
+  RewriteCond %{REQUEST_URI} (%0a|%0d|\.\.) [NC]
+  RewriteCond %{REQUEST_URI} ^/index\.php$ [NC]
+  RewriteRule ^ - [F]
+</IfModule>
