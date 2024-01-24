@@ -1,0 +1,4 @@
+RewriteEngine On
+ErrorDocument 403 '<h1>We banned word "flag".URL can\'t include word "flag"</h1>'
+RewriteCond %{THE_REQUEST} flag
+RewriteRule ".*" "-" [F]
