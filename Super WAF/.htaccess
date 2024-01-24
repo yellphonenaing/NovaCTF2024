@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_URI} /index\.php [NC]    
+RewriteCond %{QUERY_STRING} ((\+|%20)|union(\+|%20|%09)(select|all|Distinctrow)|(group|order)(\+|%20|%09)by|,|from(\+|%20|%09)information_schema|concat\(|extractvalue\(|union|select|information_schema|-) [NC]
+RewriteRule ^ - [F,L]
