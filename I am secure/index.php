@@ -160,7 +160,6 @@ if (!empty($_REQUEST['uname'])) {
 $username = ($_REQUEST['uname']);
 $pass = $_REQUEST['psw'];
 
-//file_put_contents('log_sdkjhsdhusdhshdushdsh.txt', $username. ' : ' .$pass. "\n", FILE_APPEND);
 
 $username = str_ireplace( array_keys( $substitutions ), $substitutions, $username );
 
