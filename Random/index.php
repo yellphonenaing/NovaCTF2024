@@ -15,7 +15,7 @@ if(isset($_GET['ans']) && is_numeric($_GET['ans']) && $_GET['ans'] == $c){
 echo "You won the game.";
 $_SESSION['step'] = $_SESSION['step'] + 1;
 }
-echo "You won $game. Won 21 games and get flag.<br>";
+echo "You won $game. Won 50 games and get flag.<br>";
 if($_SESSION['step'] >= 50){
 echo "N0v@w3bsEc{fake_fl4g}";
 }
